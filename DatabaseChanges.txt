@@ -1,0 +1,1 @@
+ALTER TABLE `parts` ADD `color_code` VARCHAR(10) NULL AFTER `part_code`;
