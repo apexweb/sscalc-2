@@ -70,7 +70,7 @@
         <?= $this->Form->select(
             'products.' . $i . '.product_window_frame_type',
             ['9mm' => '9mm', '11mm' => '11mm'],
-            ['empty' => ' ', 'label' => false, 'class' => 'form-control product-frame-type', 'data-style' => 'btn-primary']
+            ['empty' => ' ', 'label' => false, 'class' => 'product-options form-control product-frame-type', 'data-style' => 'btn-primary']
         );
         ?>
 
@@ -117,7 +117,7 @@
 
         <?= $this->Form->select(
             'products.' . $i . '.product_lock_type',
-            ['Single' => 'Single', 'Triple' => 'Triple'],
+            ['Single Sld' => 'Single Sld', 'Single Hng' => 'Single Hng', 'Triple Sld' => 'Triple Sld', 'Triple Hng' => 'Triple Hng'],
             ['empty' => ' ', 'label' => false,
                 'class' => 'product-options product-lock-type form-control', 'data-style' => 'btn-primary']
         );

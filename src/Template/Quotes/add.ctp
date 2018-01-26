@@ -61,17 +61,17 @@ foreach ($parts as $part) {
     $code = $part->part_code;
     $color_code = $part->color_code;
 
-    if ($part->users_parts[0]->show_in_additional_section_dropdown) {
+    if (isset($part->users_parts[0]->show_in_additional_section_dropdown)) {
         $additional_per_meter[] = ['text' => $title, 'value' => $title, 'data-price' => $price, 'data-code' => $code];
     }
-    if ($part->users_parts[0]->show_in_additional_section_by_length_dropdown) {
+    if (isset($part->users_parts[0]->show_in_additional_section_by_length_dropdown)) {
         $additional_per_length[] = ['text' => $title, 'value' => $title, 'data-price' => $price, 'data-code' => $code];
     }
-    if ($part->users_parts[0]->show_in_accessories_dropdown) {
+    if (isset($part->users_parts[0]->show_in_accessories_dropdown)) {
         $accessories[] = ['text' => $title, 'value' => $title, 'data-price' => $price, 'data-code' => $code];
     }
     if ($part->master_calculator_value) {
-        $mc_parts[$id] = ['title' => $title, 'price' => $price, 'data-code' => trim($code), 'color-code' => $color_code];
+        $mc_parts[trim($code)] = ['title' => $title, 'price' => $price, 'data-code' => trim($code), 'color-code' => $color_code];
     }
 }
 
@@ -467,7 +467,7 @@ foreach ($parts as $part) {
 
                 <fieldset class="col-xs-12">
 
-                    <?= $this->element('Quotes/mc_tables'); ?>
+                    <?= $this->element('Quotes/mc_tables', ['mc_parts' => $mc_parts]); ?>
 
                 </fieldset>
 

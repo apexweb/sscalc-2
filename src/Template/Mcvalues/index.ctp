@@ -387,11 +387,18 @@
                 </tr>
             </table>
 
-            <table class="table table-bordered small-padding">
+            <table class="table table-bordered small-padding mcvalues-table">
                 <tr>
-                    <th class="grey vertical-middle">Include Midrail Amount:</th>
+                    <th class="grey vertical-middle text-center" colspan="6">Include Midrail</th>
+                </tr>    
+                <tr>
+                    <th>Cost</th>
+                    <td><?= $this->Form->input('midrail_cost', ['class' => 'form-control input-sm include-midrail', 'label' => false]) ?></td>
+                    <th>Markup %</th>
+                    <td><?= $this->Form->input('midrail_markup', ['class' => 'form-control input-sm include-midrail', 'label' => false]) ?></td>
+                    <th>Amount $</th>
                     <td class="text-center">
-                        <?= $this->Form->input('include_midrail_amount', ['class' => 'form-control input-sm', 'label' => false]) ?>
+                        <?= $this->Form->input('include_midrail_amount', ['class' => 'form-control input-sm', 'label' => false, 'readonly'=> 'readonly']) ?>
                     </td>
                 </tr>
             </table>
@@ -460,3 +467,4 @@
     <?= $this->Form->end(); ?>
 
 </div>
+<?= $this->Html->script('mcvalues.js', ['block' => 'script']); ?>

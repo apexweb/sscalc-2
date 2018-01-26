@@ -29,6 +29,14 @@
 </div>
 
 <div class="card-box table-responsive">
+    <?php foreach ($quote['products'] as $product): 
+        $showPowerCoating = true;
+        if ($product->product_qty > 0): 
+            if ($product->product_colour) {
+                $showPowerCoating = false;
+            }
+        endif; 
+    endforeach; ?>
     <table class="table table-bordered cuttings-table small-padding">
         <!--          15  -->
         <tr>
@@ -44,25 +52,27 @@
             <td colspan="4" class="vertical-middle text-center">
                 EXTRUSION
             </td>
-            <td colspan="8">
-                <?php if ($quote->standard) {
-                    echo '<p class="no-margin">' . h($quote->standard_color) . '</p>';
-                }
-                ?>
-                <?php if ($quote->color1) {
-                    echo '<p class="no-margin">' . h($quote->color1_color) . '</p>';
-                }
-                ?>
-                <?php if ($quote->color2) {
-                    echo '<p class="no-margin">' . h($quote->color2_color) . '</p>';
-                }
-                ?><?php if ($quote->color3) {
-                    echo '<p class="no-margin">' . h($quote->color3_color) . '</p>';
-                }
-                ?><?php if ($quote->color4) {
-                    echo '<p class="no-margin">' . h($quote->color4_color) . '</p>';
-                }
-                ?>
+            <td colspan="9">
+                <?php if($showPowerCoating) {?>
+                    <?php if ($quote->standard) {
+                        echo '<p class="no-margin">' . h($quote->standard_color) . '</p>';
+                    }
+                    ?>
+                    <?php if ($quote->color1) {
+                        echo '<p class="no-margin">' . h($quote->color1_color) . '</p>';
+                    }
+                    ?>
+                    <?php if ($quote->color2) {
+                        echo '<p class="no-margin">' . h($quote->color2_color) . '</p>';
+                    }
+                    ?><?php if ($quote->color3) {
+                        echo '<p class="no-margin">' . h($quote->color3_color) . '</p>';
+                    }
+                    ?><?php if ($quote->color4) {
+                        echo '<p class="no-margin">' . h($quote->color4_color) . '</p>';
+                    }
+                    ?>
+                <?php }?>
             </td>
             <td colspan="3" class="text-center vertical-middle">SECOND POWDERCOAT REQUIRED:
                 <span style="color: #161616;">
@@ -81,6 +91,7 @@
             <th class="width-50">PANEL QTY</th>
             <th colspan="2" class="width-250">CONFIGURATION</th>
             <th>WIN OR DOOR</th>
+            <th>COLOUR</th>
             <th>FRAME</th>
             <th>QTY</th>
             <th></th>
@@ -101,7 +112,12 @@
         ?>
 
         <?php foreach ($quote['products'] as $product): ?>
-            <?php if ($product->product_qty > 0): ?>
+            <?php if ($product->product_qty > 0): 
+                    $pColour = "";
+                    if ($product->product_colour) {
+                        list($cGroup, $pColour) = explode("|", $product->product_colour);
+                    }   
+                ?>
                 <tr>
                     <?php
                     $qty_2 = 0;
@@ -112,6 +128,7 @@
                     <td><?= h($product->product_configuration) ?></td>
                     <td><?= h($product->product_sec_dig_perf_fibr) ?></td>
                     <td><?= h($product->product_window_or_door) ?></td>
+                    <td><?= h($pColour) ?></td>
                     <td><?= h($product->product_window_frame_type) ?></td>
                     <td class="text-right"><?= $qty_2 ?></td>
                     <td>x</td>
@@ -137,7 +154,7 @@
         <?php endforeach; ?>
 
         <tr>
-            <td colspan="16"></td>
+            <td colspan="17"></td>
         </tr>
 
         <?php foreach ($quote['midrails'] as $midrail): ?>

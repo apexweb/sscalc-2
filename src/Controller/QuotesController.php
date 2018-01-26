@@ -535,7 +535,7 @@ class QuotesController extends AppController
 
             $cal = new Calculator($quote, $this->Auth, $this->Quotes->Stockmetas);
             $stocks = $cal->calculatePrices();
-            
+           
             if ($this->Quotes->save($quote)) {
               
                 //$this->Quotes->Stockmetas->link($quote, $stocks);                
@@ -709,7 +709,7 @@ class QuotesController extends AppController
             //         $stock->quote_id = $quote->id;
             //     }
             // }
-                        
+                      
 
             if ($this->Quotes->save($quote)) {
                 if ($isNew) {

@@ -343,9 +343,9 @@
     <table class="table table-no-border">
         
         <?php foreach($mc_parts as $mc_part) { ?>
-            <tr style="background:<?= $mc_part['color-code']?>;">
-                <td colspan="2"><?= $mc_part['title']?></td>
-                <td class="<?= $mc_part['data-code']?>"><?= $mc_part['price']?></td>
+            <tr class="mc-<?= $mc_part['data-code']?>-color" style="background:<?= $mc_part['color-code']?>;">
+                <td colspan="2" class="mc-<?= $mc_part['data-code']?>-title"><?= $mc_part['title']?></td>
+                <td class="mc-<?= $mc_part['data-code']?>-price"><?= $mc_part['price']?></td>
                 <td><?= $mc_part['data-code']?></td>
             </tr>            
         <?php }?>
@@ -365,12 +365,24 @@
             <td class="mc-list-2"><?= h($mcvalues['triple_lock']); ?></td>
         </tr>
     </table>
-    <table class="table table-bordered">
-        <tr class="">
-            <th class="grey">Include Midrail</th>
-            <td>
-                <span class="inc-midrail-amount"><?= h($mcvalues['include_midrail_amount']); ?></span>
-            </td>
+    
+    <table class="table table-bordered mcvalues-table small-padding">
+        <tr>
+            <th class="grey" colspan="2">Include Midrail</th>
+        </tr>
+        <tr>
+            <th class="grey">Cost</th>
+            <td><span class="inc-midrail-cost"><?= h($mcvalues['midrail_cost']); ?></span></td>
+        </tr>        
+        <tr>
+            <th class="grey">Markup</th>
+            <td><span class="inc-midrail-markup"><?= h($mcvalues['midrail_markup']); ?></span>%</td>
+        </tr>
+        <tr>
+            <th class="grey">Amount $</th>
+            <td><span class="inc-midrail-amount"><?= h($mcvalues['include_midrail_amount']); ?></span></td>
         </tr>
     </table>
+    
+    
 </div>

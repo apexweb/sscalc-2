@@ -1,1 +1,8 @@
 ALTER TABLE `parts` ADD `color_code` VARCHAR(10) NULL AFTER `part_code`;
+
+
+ALTER TABLE `mcvalues` ADD `midrail_cost` INT NULL AFTER `dsw_re`, ADD `midrail_markup` INT NULL AFTER `midrail_cost`; 
+
+ALTER TABLE `mcvalues` CHANGE `midrail_cost` `midrail_cost` VARCHAR(11) NULL DEFAULT NULL; 
+ALTER TABLE `mcvalues` CHANGE `midrail_markup` `midrail_markup` VARCHAR(11) NULL DEFAULT NULL; 
+ALTER TABLE `mcvalues` CHANGE `include_midrail_amount` `include_midrail_amount` VARCHAR(11) NULL DEFAULT NULL; 
