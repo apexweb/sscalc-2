@@ -76,18 +76,19 @@ $role = $authUser['role'];
           <ul class="nav navbar-nav custom-nav custom-nav-left">
             <?php if ($role == 'manufacturer'): ?>
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders</a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu"> 
+									<li><?= $this->Html->link('<span> All Orders </span>', ['controller' => 'quotes', 'action' => 'orders'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
                                     <li><?= $this->Html->link('<span> Orders Scheduler </span>', ['controller' => 'quotes', 'action' => 'scheduler'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+									<li><?= $this->Html->link('<span> My Quotes </span>', ['controller' => 'quotes', 'action' => 'myquotes'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
                                     <li><?= $this->Html->link('<span> Add Quote </span>', ['controller' => 'quotes', 'action' => 'roleselect'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
-                                    <li><?= $this->Html->link('<span> All Orders </span>', ['controller' => 'quotes', 'action' => 'orders'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
-                                    <li><?= $this->Html->link('<span> Master Calculator Values </span>', ['controller' => 'mcvalues', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
-                                    <li><?= $this->Html->link('<span> Drop Down Values </span>', ['controller' => 'dropdowns', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
-                                    <li><?= $this->Html->link('<span> My Quotes </span>', ['controller' => 'quotes', 'action' => 'myquotes'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+                                   
+                                    <!-- <li><?= $this->Html->link('<span> Master Calculator Values </span>', ['controller' => 'mcvalues', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+                                    <li><?= $this->Html->link('<span> Drop Down Values </span>', ['controller' => 'dropdowns', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li> -->
+                                    
                                 </ul>
                             </li>
 
-                            <li><?= $this->Html->link('Matrix Tables', ['controller' => 'Matrixtables', 'action' => 'tableselect']) ?></li>
-
+                            <!-- <li><?= $this->Html->link('Matrix Tables', ['controller' => 'Matrixtables', 'action' => 'tableselect']) ?></li>-->
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Combined Stocks</a>
                                 <ul class="dropdown-menu">
                                     <li><?= $this->Html->link('<span> All Combined Stocks </span>', ['controller' => 'stocks', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
@@ -149,7 +150,21 @@ $role = $authUser['role'];
                             <li><?= $this->Html->link('Important Info', ['controller' => 'pages', 'action' => 'importantinfo']) ?></li>
                         <?php endif; ?>
 
-                        <li class="about"><?= $this->Html->link('About', ['controller' => 'pages', 'action' => 'display']); ?></li>
+                        <!-- <li class="about"><?= $this->Html->link('About', ['controller' => 'pages', 'action' => 'display']); ?></li> -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
+                            <ul class="dropdown-menu">
+                                
+                                <?php if ($role == 'manufacturer'): ?>
+                                <li><?= $this->Html->link('<span> Customize Invoice </span>', ['controller' => 'settings', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+                                <li><?= $this->Html->link('<span> Drop Down Values </span>', ['controller' => 'dropdowns', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+                                <!-- <li><?= $this->Html->link('Matrix Tables', ['controller' => 'Matrixtables', 'action' => 'tableselect']) ?></li> -->
+                                <li><?= $this->Html->link('<span> Master Calculator Values </span>', ['controller' => 'mcvalues', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+                       
+                                <?php elseif ($role == 'supplier'): ?>
+                                <li><?= $this->Html->link('<span> Drop Down Values </span>', ['controller' => 'dropdowns', 'action' => 'index'], ['class' => 'waves-effect', 'escape' => false]) ?></li>
+                                <?php endif; ?>                                 
+                            </ul>
+                        </li>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right custom-nav custom-nav-right">

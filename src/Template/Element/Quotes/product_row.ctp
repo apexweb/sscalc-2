@@ -44,9 +44,10 @@
     </td>
     
     <td>
+		<?php $otherColour = array_merge($colours, array('Other'=>'Other'));?>
         <?= $this->Form->select(
             'products.' . $i . '.product_colour',
-            $colours,
+            $otherColour,
             ['empty' => ' ', 'label' => false,
                 'class' => 'product-options form-control product-colour', 'data-style' => 'btn-primary']
         );

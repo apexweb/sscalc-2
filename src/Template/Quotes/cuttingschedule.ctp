@@ -18,12 +18,3 @@
 </div>
 
 <?= $this->element('Quotes/cutting_schedule', ['quote' => $quote]); ?>
-
-
-
-
-
-
-
-
-

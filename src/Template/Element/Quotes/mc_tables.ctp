@@ -1,70 +1,70 @@
 <?php
-    //pr($mc_parts);
+    //pr(@$mc_parts);
     
     $part_vaiables = [
-            'singleLockSld' => ['label' => $mc_parts['SNGLOCKSLD']['title'], 'price' => $mc_parts['SNGLOCKSLD']['price']],
-            'singleLockHng' => ['label' => $mc_parts['SNGLOCKHNG']['title'], 'price' => $mc_parts['SNGLOCKHNG']['price']],
-            'tripleLockSld' => ['label' => $mc_parts['TRPLOCKSLD']['title'], 'price' => $mc_parts['TRPLOCKSLD']['price']],
-            'tripleLockHng' => ['label' => $mc_parts['TRPLOCKHNG']['title'], 'price' => $mc_parts['TRPLOCKHNG']['price']],
-            'spline' => ['label' => $mc_parts['INSSPLN']['title'], 'price' => $mc_parts['INSSPLN']['price']],
-            'insectMesh' => ['label' => $mc_parts['INSMSH']['title'], 'price' => $mc_parts['INSMSH']['price']],
-            'petMesh' => ['label' => $mc_parts['INSPETMSH']['title'], 'price' => $mc_parts['INSPETMSH']['price']],
-            'PVCLSeat' => ['label' => $mc_parts['SECDRWDGPT2']['title'], 'price' => $mc_parts['SECDRWDGPT2']['price']],
-            'PVCWedge' => ['label' => $mc_parts['SECDRWDGPT1']['title'], 'price' => $mc_parts['SECDRWDGPT1']['price']],
-            'sgSSMesh' => ['label' => $mc_parts['SSMESH']['title'], 'price' => $mc_parts['SSMESH']['price']],
-            'perfSheetFixingBead' => ['label' => $mc_parts['PERFWEG']['title'], 'price' => $mc_parts['PERFWEG']['price']],
-            'roller' => ['label' => $mc_parts['ROLLR']['title'], 'price' => $mc_parts['ROLLR']['price']],
-            'hingers' => ['label' => $mc_parts['HNG']['title'], 'price' => $mc_parts['HNG']['price']], 
-            'rollerHinges' => ['label' => $mc_parts['HNG']['title'], 'price' => $mc_parts['HNG']['price']], 
-            'lockCyl' => ['label' => $mc_parts['LCKCYL']['title'], 'price' => $mc_parts['LCKCYL']['price']], 
+            'singleLockSld' => ['label' => @$mc_parts['SNGLOCKSLD']['title'], 'price' => @$mc_parts['SNGLOCKSLD']['price']],
+            'singleLockHng' => ['label' => @$mc_parts['SNGLOCKHNG']['title'], 'price' => @$mc_parts['SNGLOCKHNG']['price']],
+            'tripleLockSld' => ['label' => @$mc_parts['TRPLOCKSLD']['title'], 'price' => @$mc_parts['TRPLOCKSLD']['price']],
+            'tripleLockHng' => ['label' => @$mc_parts['TRPLOCKHNG']['title'], 'price' => @$mc_parts['TRPLOCKHNG']['price']],
+            'spline' => ['label' => @$mc_parts['INSSPLN']['title'], 'price' => @$mc_parts['INSSPLN']['price']],
+            'insectMesh' => ['label' => @$mc_parts['INSMSH']['title'], 'price' => @$mc_parts['INSMSH']['price']],
+            'petMesh' => ['label' => @$mc_parts['INSPETMSH']['title'], 'price' => @$mc_parts['INSPETMSH']['price']],
+            'PVCLSeat' => ['label' => @$mc_parts['SECDRWDGPT2']['title'], 'price' => @$mc_parts['SECDRWDGPT2']['price']],
+            'PVCWedge' => ['label' => @$mc_parts['SECDRWDGPT1']['title'], 'price' => @$mc_parts['SECDRWDGPT1']['price']],
+            'sgSSMesh' => ['label' => @$mc_parts['SSMESH']['title'], 'price' => @$mc_parts['SSMESH']['price']],
+            'perfSheetFixingBead' => ['label' => @$mc_parts['PERFWEG']['title'], 'price' => @$mc_parts['PERFWEG']['price']],
+            'roller' => ['label' => @$mc_parts['ROLLR']['title'], 'price' => @$mc_parts['ROLLR']['price']],
+            'hingers' => ['label' => @$mc_parts['HNG']['title'], 'price' => @$mc_parts['HNG']['price']], 
+            'rollerHinges' => ['label' => @$mc_parts['HNG']['title'], 'price' => @$mc_parts['HNG']['price']], 
+            'lockCyl' => ['label' => @$mc_parts['LCKCYL']['title'], 'price' => @$mc_parts['LCKCYL']['price']], 
         ];
     
     $secDoor = [
             'secdigfibr' => 'Security',
             'windoor' => 'Door',
             //'sqmpart' => ['label' => 'SG S/S mesh', 'price' => '75.6', 'color' => ''],
-            'sqmpart' => ['label' => $mc_parts['SSMESH']['title'], 'price' => $mc_parts['SSMESH']['price'], 'color' => ''],
-            'frame' => ['label' => $mc_parts['SECDRFRM']['title'], 'price' => $mc_parts['SECDRFRM']['price'], 'color' => ''],
-            'crnstake' => ['label' => $mc_parts['SECDRCRNSTK']['title'], 'price' => $mc_parts['SECDRCRNSTK']['price'], 'color' => '']                   
+            'sqmpart' => ['label' => @$mc_parts['SSMESH']['title'], 'price' => @$mc_parts['SSMESH']['price'], 'color' => ''],
+            'frame' => ['label' => @$mc_parts['SECDRFRM']['title'], 'price' => @$mc_parts['SECDRFRM']['price'], 'color' => ''],
+            'crnstake' => ['label' => @$mc_parts['SECDRCRNSTK']['title'], 'price' => @$mc_parts['SECDRCRNSTK']['price'], 'color' => '']                   
         ];
 
     $secWindow = [
             'secdigfibr' => 'Security',
             'windoor' => 'Windows',
-            'sqmpart' => ['label' => $mc_parts['SSMESH']['title'], 'price' => $mc_parts['SSMESH']['price'], 'color' => ''],
+            'sqmpart' => ['label' => @$mc_parts['SSMESH']['title'], 'price' => @$mc_parts['SSMESH']['price'], 'color' => ''],
             'frame' => [
-                    'default' => ['label' => $mc_parts['SECWNFRM9']['title'], 'price' => $mc_parts['SECWNFRM9']['price'], 'color' => ''],
-                    'mm9' => ['label' => $mc_parts['SECWNFRM9']['title'], 'price' => $mc_parts['SECWNFRM9']['price'], 'color' => ''],
-                    'mm11' => ['label' => $mc_parts['SECWNFRM11']['title'], 'price' => $mc_parts['SECWNFRM11']['price'], 'color' => ''],
+                    'default' => ['label' => @$mc_parts['SECWNFRM9']['title'], 'price' => @$mc_parts['SECWNFRM9']['price'], 'color' => ''],
+                    'mm9' => ['label' => @$mc_parts['SECWNFRM9']['title'], 'price' => @$mc_parts['SECWNFRM9']['price'], 'color' => ''],
+                    'mm11' => ['label' => @$mc_parts['SECWNFRM11']['title'], 'price' => @$mc_parts['SECWNFRM11']['price'], 'color' => ''],
                     ],
             'crnstake' => [
-                    'default' => ['label' => $mc_parts['SECWNCRNSTK9']['title'], 'price' => $mc_parts['SECWNCRNSTK9']['price'], 'color' => ''],
-                    'mm9' => ['label' => $mc_parts['SECWNCRNSTK9']['title'], 'price' => $mc_parts['SECWNCRNSTK9']['price'], 'color' => ''],
-                    'mm11' => ['label' => $mc_parts['SECWNCRNSTK11']['title'], 'price' => $mc_parts['SECWNCRNSTK11']['price'], 'color' => ''],
+                    'default' => ['label' => @$mc_parts['SECWNCRNSTK9']['title'], 'price' => @$mc_parts['SECWNCRNSTK9']['price'], 'color' => ''],
+                    'mm9' => ['label' => @$mc_parts['SECWNCRNSTK9']['title'], 'price' => @$mc_parts['SECWNCRNSTK9']['price'], 'color' => ''],
+                    'mm11' => ['label' => @$mc_parts['SECWNCRNSTK11']['title'], 'price' => @$mc_parts['SECWNCRNSTK11']['price'], 'color' => ''],
                     ],
         ] ;
 
     $dgDoor = [
             'secdigfibr' => 'Diamond Grille',
             'windoor' => 'Door',
-            'sqmpart' => ['label' => $mc_parts['7MMDG']['title'], 'price' => $mc_parts['7MMDG']['price'], 'color' => ''],
-            'frame' => ['label' => $mc_parts['DGDRFRM']['title'], 'price' => $mc_parts['DGDRFRM']['price'], 'color' => ''],
-            'crnstake' => ['label' => $mc_parts['DGDRCRNSTK']['title'], 'price' => $mc_parts['DGDRCRNSTK']['price'], 'color' => '']                   
+            'sqmpart' => ['label' => @$mc_parts['7MMDG']['title'], 'price' => @$mc_parts['7MMDG']['price'], 'color' => ''],
+            'frame' => ['label' => @$mc_parts['DGDRFRM']['title'], 'price' => @$mc_parts['DGDRFRM']['price'], 'color' => ''],
+            'crnstake' => ['label' => @$mc_parts['DGDRCRNSTK']['title'], 'price' => @$mc_parts['DGDRCRNSTK']['price'], 'color' => '']                   
         ];
 
     $dgWindow = [
             'secdigfibr' => 'Diamond Grille',
             'windoor' => 'Windows',
-            'sqmpart' => ['label' => $mc_parts['7MMDG']['title'], 'price' => $mc_parts['7MMDG']['price'], 'color' => ''],
+            'sqmpart' => ['label' => @$mc_parts['7MMDG']['title'], 'price' => @$mc_parts['7MMDG']['price'], 'color' => ''],
             'frame' => [
-                    'default' => ['label' => $mc_parts['DGWNFRM9']['title'], 'price' => $mc_parts['DGWNFRM9']['price'], 'color' => ''],
-                    'mm9' => ['label' => $mc_parts['DGWNFRM9']['title'], 'price' => $mc_parts['DGWNFRM9']['price'], 'color' => ''],
-                    'mm11' => ['label' => $mc_parts['DGWNFRM11']['title'], 'price' => $mc_parts['DGWNFRM11']['price'], 'color' => ''],
+                    'default' => ['label' => @$mc_parts['DGWNFRM9']['title'], 'price' => @$mc_parts['DGWNFRM9']['price'], 'color' => ''],
+                    'mm9' => ['label' => @$mc_parts['DGWNFRM9']['title'], 'price' => @$mc_parts['DGWNFRM9']['price'], 'color' => ''],
+                    'mm11' => ['label' => @$mc_parts['DGWNFRM11']['title'], 'price' => @$mc_parts['DGWNFRM11']['price'], 'color' => ''],
                     ],
             'crnstake' => [
-                    'default' => ['label' => $mc_parts['DGWNCRNSTK9']['title'], 'price' => $mc_parts['DGWNCRNSTK9']['price'], 'color' => ''],
-                    'mm9' => ['label' => $mc_parts['DGWNCRNSTK9']['title'], 'price' => $mc_parts['DGWNCRNSTK9']['price'], 'color' => ''],
-                    'mm11' => ['label' => $mc_parts['DGWNCRNSTK11']['title'], 'price' => $mc_parts['DGWNCRNSTK11']['price'], 'color' => ''],
+                    'default' => ['label' => @$mc_parts['DGWNCRNSTK9']['title'], 'price' => @$mc_parts['DGWNCRNSTK9']['price'], 'color' => ''],
+                    'mm9' => ['label' => @$mc_parts['DGWNCRNSTK9']['title'], 'price' => @$mc_parts['DGWNCRNSTK9']['price'], 'color' => ''],
+                    'mm11' => ['label' => @$mc_parts['DGWNCRNSTK11']['title'], 'price' => @$mc_parts['DGWNCRNSTK11']['price'], 'color' => ''],
                     ],
         ] ;
 
@@ -72,36 +72,36 @@
             'secdigfibr' => 'Fibre',
             'windoor' => 'Doors',
             'sqmpart' => [
-                        'petmesh' => ['label' => $mc_parts['INSPETMSH']['title'], 'price' => $mc_parts['INSPETMSH']['title'], 'color' => ''],
-                        'mesh' => ['label' => $mc_parts['INSMSH']['title'], 'price' => $mc_parts['INSMSH']['price'], 'color' => ''],
+                        'petmesh' => ['label' => @$mc_parts['INSPETMSH']['title'], 'price' => @$mc_parts['INSPETMSH']['title'], 'color' => ''],
+                        'mesh' => ['label' => @$mc_parts['INSMSH']['title'], 'price' => @$mc_parts['INSMSH']['price'], 'color' => ''],
                      ],
-            'frame' => ['label' => $mc_parts['INSDRFRM']['title'], 'price' => $mc_parts['INSDRFRM']['price'], 'color' => ''],
-            'crnstake' => ['label' => $mc_parts['INSDRCRNSTK']['title'], 'price' => $mc_parts['INSDRCRNSTK']['price'], 'color' => '']                   
+            'frame' => ['label' => @$mc_parts['INSDRFRM']['title'], 'price' => @$mc_parts['INSDRFRM']['price'], 'color' => ''],
+            'crnstake' => ['label' => @$mc_parts['INSDRCRNSTK']['title'], 'price' => @$mc_parts['INSDRCRNSTK']['price'], 'color' => '']                   
         ];
 
     $fibrWindow = [
             'secdigfibr' => 'Fibre',
             'windoor' => 'Windows',
             'sqmpart' => [
-                        'petmesh' => ['label' => $mc_parts['INSPETMSH']['title'], 'price' => $mc_parts['INSPETMSH']['title'], 'color' => ''],
-                        'mesh' => ['label' => $mc_parts['INSMSH']['title'], 'price' => $mc_parts['INSMSH']['price'], 'color' => ''],
+                        'petmesh' => ['label' => @$mc_parts['INSPETMSH']['title'], 'price' => @$mc_parts['INSPETMSH']['title'], 'color' => ''],
+                        'mesh' => ['label' => @$mc_parts['INSMSH']['title'], 'price' => @$mc_parts['INSMSH']['price'], 'color' => ''],
                     ],
             'frame' => [
-                    'default' => ['label' => $mc_parts['INSWNFRM9']['title'], 'price' => $mc_parts['INSWNFRM9']['price'], 'color' => ''],
-                    'mm9' => ['label' => $mc_parts['INSWNFRM9']['title'], 'price' => $mc_parts['INSWNFRM9']['price'], 'color' => ''],
-                    'mm11' => ['label' => $mc_parts['INSWNFRM11']['title'], 'price' => $mc_parts['INSWNFRM11']['price'], 'color' => ''],
+                    'default' => ['label' => @$mc_parts['INSWNFRM9']['title'], 'price' => @$mc_parts['INSWNFRM9']['price'], 'color' => ''],
+                    'mm9' => ['label' => @$mc_parts['INSWNFRM9']['title'], 'price' => @$mc_parts['INSWNFRM9']['price'], 'color' => ''],
+                    'mm11' => ['label' => @$mc_parts['INSWNFRM11']['title'], 'price' => @$mc_parts['INSWNFRM11']['price'], 'color' => ''],
                     ],
             'crnstake' => [
-                    'default' => ['label' => $mc_parts['INSWNCRNSTK9']['title'], 'price' => $mc_parts['INSWNCRNSTK9']['price'], 'color' => ''],
-                    'mm9' => ['label' => $mc_parts['INSWNCRNSTK9']['title'], 'price' => $mc_parts['INSWNCRNSTK9']['price'], 'color' => ''],
-                    'mm11' => ['label' => $mc_parts['INSWNCRNSTK11']['title'], 'price' => $mc_parts['INSWNCRNSTK11']['price'], 'color' => ''],
+                    'default' => ['label' => @$mc_parts['INSWNCRNSTK9']['title'], 'price' => @$mc_parts['INSWNCRNSTK9']['price'], 'color' => ''],
+                    'mm9' => ['label' => @$mc_parts['INSWNCRNSTK9']['title'], 'price' => @$mc_parts['INSWNCRNSTK9']['price'], 'color' => ''],
+                    'mm11' => ['label' => @$mc_parts['INSWNCRNSTK11']['title'], 'price' => @$mc_parts['INSWNCRNSTK11']['price'], 'color' => ''],
                     ],
         ] ;
     
     $perfDoor = [
             'secdigfibr' => 'Perforated Aluminium',
             'windoor' => 'Door',
-            'sqmpart' => ['label' => $mc_parts['PERFMESH']['title'], 'price' => $mc_parts['PERFMESH']['price'], 'color' => ''],
+            'sqmpart' => ['label' => @$mc_parts['PERFMESH']['title'], 'price' => @$mc_parts['PERFMESH']['price'], 'color' => ''],
             'frame' => ['label' => 'D/Grille Door Frame', 'price' => '5.37', 'color' => ''],
             'crnstake' => ['label' => 'Door Cnr stake', 'price' => '0.69', 'color' => '']                   
         ];
@@ -109,7 +109,7 @@
     $perfWindow = [
             'secdigfibr' => 'Perforated Aluminium',
             'windoor' => 'Windows',
-            'sqmpart' => ['label' => $mc_parts['PERFMESH']['title'], 'price' => $mc_parts['PERFMESH']['price'], 'color' => ''],
+            'sqmpart' => ['label' => @$mc_parts['PERFMESH']['title'], 'price' => @$mc_parts['PERFMESH']['price'], 'color' => ''],
             'frame' => [
                     'default' => ['label' => 'D/Grille Window Frame', 'price' => '2.93', 'color' => ''],
                     'mm9' => ['label' => 'D/Grille Window Frame', 'price' => '2.93', 'color' => ''],

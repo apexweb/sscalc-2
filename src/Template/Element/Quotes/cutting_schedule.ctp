@@ -101,8 +101,9 @@
             <th>WIDTH</th>
             <th colspan="2" class="width-100">LOCK TYPE</th>
             <th>HANDLE HEIGHT</th>
-            <th class="width-250">LOCATION / NOTES / COLOURS</th>
-            <!--            <th>LOCK QTY</th>-->
+			<th class="width-250">LOCATION / NOTES</th>
+            <!--<th class="width-250">LOCATION / NOTES / COLOURS</th>
+                        <th>LOCK QTY</th>-->
         </tr>
 
         <?php
