@@ -104,7 +104,7 @@ foreach ($parts as $part) {
 <input type="hidden" id="role" value="<?php echo $authUser['role']; ?>"/>
 
 
-<?= $this->Form->create($quote, ['class' => 'form-horizontal add-quote-form', 'enctype' => 'multipart/form-data']) ?>
+<?= $this->Form->create($quote, ['class' => 'form-horizontal add-quote-form', 'enctype' => 'multipart/form-data', 'id' => 'add-quote-form']) ?>
 
 <?php if (isset($mfrole)): ?>
 

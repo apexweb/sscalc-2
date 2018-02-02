@@ -57,8 +57,11 @@ class QuotesController extends AppController
                 'printoutpdf',
                 'invoicepdf',
                 'funnelwebpdf',
+                'monthlyreportpdf',
                 'pdf',
-                'sendattachment'
+                'sendattachment',
+                'autosavequote',
+                'monthlyReport'
                 //'test'
             ]);
         }
@@ -1093,5 +1096,105 @@ class QuotesController extends AppController
         
         echo json_encode($result);
         exit;
+    }
+
+	function saveQuote($data){
+        
+        //$this->authorize(['manufacturer', 'distributor', 'wholesaler', 'retailer']);
+        $role = $this->Auth->user('role');
+        $quote = $this->Quotes->newEntity();
+
+        $this->request->data = $data;
+        $this->delete_blank_models($this->request->data);
+
+        $quote = $this->Quotes->patchEntity($quote, $this->request->data, [
+            'associated' =>
+                ['Products', 'Midrails', 'Additionalpermeters',
+                    'Additionalperlength', 'Accessories', 'Customitems', 'Stockmetas', 'Cutsheets']
+        ]);
+
+
+        $quote->user_id = $this->Auth->user('id');
+        $quote->role = $role;
+
+        $ordered = false;
+        $sendToInstaller = false;
+
+        if ($this->request->data['is_ordered']) {
+            $quote->status = 'in progress';
+            $quote->orderin_date = (new \DateTime())->format('d/m/Y');
+            $ordered = true;
+        } else {
+            $quote->status = 'pending';
+        }       
+
+        $cal = new Calculator($quote, $this->Auth, $this->Quotes->Stockmetas);
+        $stocks = $cal->calculatePrices();
+
+        if ($this->Quotes->save($quote)) {            
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+    function autosavequote() {
+        
+        $this->autoRender = false;
+        $result['response'] = true;
+        
+        $fieldSettings = TableRegistry::get('Settings');
+        $settings = $fieldSettings->find('all')
+                        ->where(['user_id' => $this->Auth->user('id'),'meta_key' => 'quote-draft'])->first();
+        if(empty($settings)){
+            $settings = $fieldSettings->newEntity();
+        }
+        
+        if ($this->request->is(['patch', 'post', 'put'])) {            
+            $settings = $fieldSettings->patchEntity($settings, $this->request->data);
+            $settings->user_id = $this->Auth->user('id');
+            $settings->meta_key = 'quote-draft';
+            $settings->meta_value = base64_encode(serialize($this->request->data));
+            if ($fieldSettings->save($settings)) {
+                $result['result'] = true;
+                $result['id'] = $settings->id;
+                $result['message'] = 'The quote has been saved.';
+            } else {
+                $result['result'] = false;  
+                $result['message'] = 'The quote could not be saved. Please, try again.';
+            }
+        }
+        echo json_encode($result);
+        exit;
+    }
+    
+    public function monthlyReport($user_id = null)
+    {
+        $month = date('m');
+        $year = date('Y');
+        
+        $quotes = $this->Quotes->find('all', ['contain' => [
+            'Users' => function ($q) {
+                return $q->select(['username']);
+            }
+        ]])
+            ->order(['Quotes.created' => 'DESC', 'FIELD(Quotes.role, "wholesaler", "manufacturer") DESC']);//, 
+         
+        $quotes->where(['Quotes.user_id' => $user_id]);
+        $quotes->where(['Quotes.status' => 'complete']);
+               
+        if (isset($this->request->query['month'])) {
+            $month = $this->request->query['month'];
+        }
+        if (isset($this->request->query['year'])) {
+            $year = $this->request->query['year'];
+        }
+        
+        $quotes->where(['MONTH(Quotes.created)' => $month]);
+        $quotes->where(['YEAR(Quotes.created)' => $year]);
+      
+        
+        $this->set(compact('quotes', 'search', 'status', 'user_id', 'month', 'year'));
+        $this->set('_serialize', ['quotes', 'search', 'status']);
     }
 }

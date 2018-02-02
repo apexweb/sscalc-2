@@ -125,6 +125,7 @@ if ($quote->override_final_price) {
             <th class="width-75">Product</th>
             <th class="width-75">Mesh Option</th>
             <th class="width-75">Fixture</th>
+            <th class="width-80">Colour</th> 
             <th class="width-150">Config</th>
             <th class="width-250">Location / Notes</th>
             <th class="width-50">Hght mm</th>
@@ -141,6 +142,7 @@ if ($quote->override_final_price) {
                     <td><?= h($product->product_sec_dig_perf_fibr) ?></td>
                     <td><?= h($product->product_316_ss_gal_pet) ?></td>
                     <td><?= h($product->product_window_or_door) ?></td>
+                    <td><?= h($product->colour) ?></td>
                     <td><?= h($product->product_configuration) ?></td>
                     <td><?= h($product->product_location_in_building) ?></td>
                     <td><?= h($product->product_height) ?></td>
@@ -163,14 +165,14 @@ if ($quote->override_final_price) {
         <?php if ($midrail_total_cost > 0): ?>
             <tr>
                 <td colspan="2"></td>
-                <td colspan="8" class="text-center"><strong>Midrails</strong></td>
+                <td colspan="9" class="text-center"><strong>Midrails</strong></td>
                 <td><span>$</span><?= $midrail_total_cost; ?></td>
             </tr>
         <?php endif; ?>
         <tr>
             <td></td>
             <td>Qty</td>
-            <td colspan="8" class="text-center"><strong>Sections and Accessories Required</strong></td>
+            <td colspan="9" class="text-center"><strong>Sections and Accessories Required</strong></td>
             <td></td>
         </tr>
         <!--   Addtional Per Meters:     -->
@@ -179,7 +181,7 @@ if ($quote->override_final_price) {
                 <tr>
                     <td></td>
                     <td><?= h($additionalpermeter->additional_per_meter) ?></td>
-                    <td colspan="8" class="text-center"><?= h($additionalpermeter->additional_name) ?>
+                    <td colspan="9" class="text-center"><?= h($additionalpermeter->additional_name) ?>
                     <?php //pr($quote);?>
                     </td>
                     <td>
@@ -198,7 +200,7 @@ if ($quote->override_final_price) {
                 <tr>
                     <td></td>
                     <td><?= h($additionalperlength->additional_per_length) ?></td>
-                    <td colspan="8" class="text-center"><?= h($additionalperlength->additional_name) ?></td>
+                    <td colspan="9" class="text-center"><?= h($additionalperlength->additional_name) ?></td>
                     <td>
                         <?php if (!$flatCustomPrice): ?>
                             <span>$</span><?= h($additionalperlength->additional_charged); ?>
@@ -214,10 +216,10 @@ if ($quote->override_final_price) {
                 <tr>
                     <td></td>
                     <td><?= h($accessory->accessory_each) ?></td>
-                    <td colspan="8" class="text-center"><?= h($accessory->accessory_name) ?></td>
+                    <td colspan="9" class="text-center"><?= h($accessory->accessory_name) ?></td>
                     <td>
                         <?php if (!$flatCustomPrice): ?>
-                            <span>$</span><?= h($accessory->accessory_price); ?>
+                            <span>$</span><?= h($accessory->accessory_charged); ?>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -230,7 +232,7 @@ if ($quote->override_final_price) {
                 <tr>
                     <td></td>
                     <td><?= h($customitem->custom_qty) ?></td>
-                    <td colspan="8" class="text-center"><?= h($customitem->custom_description) ?></td>
+                    <td colspan="9" class="text-center"><?= h($customitem->custom_description) ?></td>
                     <td>
                         <?php if (!$flatCustomPrice): ?>
                             <span>$</span><?= h($customitem->custom_charged); ?>
@@ -242,7 +244,7 @@ if ($quote->override_final_price) {
 
         <tr>
             <td colspan="2"></td>
-            <td colspan="7"></td>
+            <td colspan="8"></td>
             <td>Screen Total incl. GST</td>
             <td>
                 <?php if (!$flatCustomPrice): ?>
@@ -254,7 +256,7 @@ if ($quote->override_final_price) {
         <?php if (isset($quote->discount_amount) && $quote->discount_amount > 0 && (!$flatCustomPrice)): ?>
             <tr>
                 <td colspan="2"></td>
-                <td colspan="7"></td>
+                <td colspan="9"></td>
                 <td>Discount Applied <?php if($quote->discount) echo ' - '. $quote->discount .'%';?></td>
                 <td><span>$</span><?= h($quote->discount_amount); ?></td>
             </tr>
@@ -262,7 +264,7 @@ if ($quote->override_final_price) {
 
         <tr>
             <td colspan="2"></td>
-            <td colspan="7" class="text-center"><strong>Colour</strong></td>
+            <td colspan="8" class="text-center"><strong>Colour</strong></td>
             <td>Installation</td>
             <td>
                 <?php if (!$flatCustomPrice): ?>
@@ -272,7 +274,7 @@ if ($quote->override_final_price) {
         </tr>
         <tr>
             <td colspan="2"></td>
-            <td colspan="7" class="text-center quote-colors">
+            <td colspan="8" class="text-center quote-colors">
 
                 <?php if ($quote->standard) {
                     echo '<p>' . h($quote->standard_color) . '</p>';
@@ -309,7 +311,7 @@ if ($quote->override_final_price) {
         </tr>
         <tr>
             <td colspan="2">TERMS:</td>
-            <td colspan="7"></td>
+            <td colspan="8"></td>
             <td>Deposit Amount</td>
             <td>
 
@@ -329,24 +331,24 @@ if ($quote->override_final_price) {
         </tr>
         <tr>
             <td colspan="4">*Estimate is subject to check measure</td>
-            <td colspan="3">*Installation includes any freight/delivery charges if applicable</td>
+            <td colspan="4">*Installation includes any freight/delivery charges if applicable</td>
             <td colspan="2">Bank Details</td>
             <td>Bank</td>
             <td><?= h($authUser['bank_name']) ?></td>
         </tr>
         <tr>
             <td colspan="4">*This estimate is valid for 30 days*</td>
-            <td colspan="5"><strong>Please use the Order No as your payment reference</strong></td>
+            <td colspan="6"><strong>Please use the Order No as your payment reference</strong></td>
             <td>Account Name</td>
             <td><?= h($authUser['bank_account_name']) ?></td>
         </tr>
         <tr>
-            <td colspan="9"></td>
+            <td colspan="10"></td>
             <td>BSB</td>
             <td><?= h($authUser['bsb']) ?></td>
         </tr>
         <tr>
-            <td colspan="9"></td>
+            <td colspan="10"></td>
             <td>Acc No.</td>
             <td><?= h($authUser['bank_account_number']) ?></td>
         </tr>
@@ -355,7 +357,7 @@ if ($quote->override_final_price) {
                 but please be aware in doing so that you have acknowledged this estimate and agree with the Terms and
                 Conditions it in their entirety.
             </td>
-            <td colspan="3"></td>
+            <td colspan="4"></td>
         </tr>
         <tr>
             <td style="padding: 40px 0;"></td>
@@ -364,7 +366,7 @@ if ($quote->override_final_price) {
             <td colspan="4" style="vertical-align: middle;">
                 <hr/>
             </td>
-            <td colspan="3" style="vertical-align: bottom;">
+            <td colspan="4" style="vertical-align: bottom;">
                 <span style="margin-right: 30px;">Date:</span>
                 <span style="margin-right: 30px;"> / </span>
                 <span style="margin-right: 30px;"> / </span>
@@ -373,7 +375,7 @@ if ($quote->override_final_price) {
         </tr>
         <tr>
             <td colspan="3"><strong>Notes to Customer:</strong></td>
-            <td colspan="8"><?= h($quote->notes_customer); ?></td>
+            <td colspan="10"><?= h($quote->notes_customer); ?></td>
         </tr>
     </table>
 </div>

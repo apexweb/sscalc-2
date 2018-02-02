@@ -79,7 +79,7 @@
             <?= $this->Form->input('cutsheets.' . $i . '.'.$input_name,  [
                     'label' => false, 
                     'class' => 'form-control input-sm editOption additional-input-colour', 
-                    'style' => $input_style, 
+                    'style' => 'width:81%;display:none;', 
                     'templates' => [
                         'inputContainer' => '{{content}}']
                     ]                    

@@ -59,19 +59,18 @@ foreach ($parts as $part) {
     $title = $part->title;
     $price = $part->users_parts[0]->price_per_unit;
     $code = $part->part_code;
-    $color_code = $part->color_code;
 
-    if (isset($part->users_parts[0]->show_in_additional_section_dropdown)) {
+    if ($part->users_parts[0]->show_in_additional_section_dropdown) {
         $additional_per_meter[] = ['text' => $title, 'value' => $title, 'data-price' => $price, 'data-code' => $code];
     }
-    if (isset($part->users_parts[0]->show_in_additional_section_by_length_dropdown)) {
+    if ($part->users_parts[0]->show_in_additional_section_by_length_dropdown) {
         $additional_per_length[] = ['text' => $title, 'value' => $title, 'data-price' => $price, 'data-code' => $code];
     }
-    if (isset($part->users_parts[0]->show_in_accessories_dropdown)) {
+    if ($part->users_parts[0]->show_in_accessories_dropdown) {
         $accessories[] = ['text' => $title, 'value' => $title, 'data-price' => $price, 'data-code' => $code];
     }
-    if ($part->master_calculator_value) {
-        $mc_parts[trim($code)] = ['title' => $title, 'price' => $price, 'data-code' => trim($code), 'color-code' => $color_code];
+    if ($part->users_parts[0]->master_calculator_value) {
+        $mc_parts[$id] = ['title' => $title, 'price' => $price, 'data-code' => $code];
     }
 }
 
@@ -348,7 +347,10 @@ foreach ($parts as $part) {
                                 <th>ITEM NO.</th>
                                 <th>EACH</th>
                                 <th>ACCESSORIES</th>
-                                <th class="width-50">PRICE</th>
+                                <!--<th class="width-50">PRICE</th>-->
+                                <th class="width-40">COST</th>
+                                <th class="width-40">MARK UP %</th>
+                                <th colspan="2">SELL PRICE</th>
                             </tr>
 
                             <?php for ($i = 0; $i < 3; $i++): ?>
@@ -391,7 +393,7 @@ foreach ($parts as $part) {
                                 foreach ($quote['cutsheets'] as $cutsheet): ?>
 
                                     <?= $this->element('Quotes/cutsheet_row',
-                                        ['i' => $i, 'additional_per_meter' => $additional_per_meter]); ?>
+                                        ['i' => $i, 'additional_per_meter' => $additional_per_meter, 'colours' => $colours]); ?>
 
                                     <?php $i++; endforeach; ?>
 
@@ -399,7 +401,7 @@ foreach ($parts as $part) {
                                 <?php for ($i = 0; $i < 3; $i++): ?>
 
                                     <?= $this->element('Quotes/cutsheet_row',
-                                        ['i' => $i, 'additional_per_meter' => $additional_per_meter]); ?>
+                                        ['i' => $i, 'additional_per_meter' => $additional_per_meter, 'colours' => $colours]); ?>
 
                                 <?php endfor; ?>
 
@@ -409,7 +411,9 @@ foreach ($parts as $part) {
                         <button type="button" id="add-row-cutsheet" class="btn btn-primary waves-effect btn-sm">Add
                             next item
                         </button>
-
+                        <button id="copy-cutsheet-btn" type="button" class="btn btn-primary waves-effect btn-sm">Copy
+                                above line
+                        </button>
                     </div>
 
                     <div class="col-lg-6 table-responsive text-center">
@@ -501,7 +505,7 @@ foreach ($parts as $part) {
 
                 <fieldset class="col-xs-12">
 
-                    <?= $this->element('Quotes/mc_tables', ['mc_parts' => $mc_parts]); ?>
+                    <?= $this->element('Quotes/mc_tables'); ?>
 
                 </fieldset>
 

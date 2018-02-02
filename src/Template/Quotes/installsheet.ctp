@@ -84,6 +84,7 @@
             <th>LOCATION</th>
             <th colspan="2">CONFIGURATION</th>
             <th>WIN OR DR</th>
+			<th>COLOUR</th>
             <th>FRAME</th>
             <th>HEIGHT</th>
             <th></th>
@@ -108,6 +109,7 @@
                     </td>
 
                     <td class="width-100"><?= h($product->product_window_or_door) ?></td>
+					<td ><?= h($product->colour) ?></td>
                     <td><?= h($product->product_window_frame_type) ?></td>
                     <td class="width-75"><?= h($product->product_height) ?></td>
                     <td></td>
