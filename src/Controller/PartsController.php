@@ -196,9 +196,9 @@ class PartsController extends AppController
      */
     public function edit($id = null)
     {
-        $this->authorize(['supplier', 'manufacturer']);
+       $this->authorize(['supplier', 'manufacturer']);
         $role = $this->Auth->user('role');
-
+		echo $id;
         $userparts = TableRegistry::get('users_parts');
         $part = $userparts->find('all')->where(['users_parts.id' => $id])->contain(['Parts'])->first();
 

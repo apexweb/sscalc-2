@@ -27,7 +27,19 @@
     <td>
 
         <?= $this->Form->input('accessories.' . $i . '.accessory_price',
-            ['label' => false, 'class' => 'form-control accessory-total-price span-input', 'readonly' => 'readonly']); ?>
+            ['label' => false, 'class' => 'form-control accessories accessory-total-price span-input', 'readonly' => 'readonly']); ?>
+
+    </td>
+    <td>
+        <?= $this->Form->input('accessories.' . $i . '.accessory_markup',
+            ['label' => false, 'class' => 'form-control accessories accessory-markup']); ?>
+
+    </td>
+    
+    <td class="width-75">
+
+        <?= $this->Form->input('accessories.' . $i . '.accessory_charged',
+            ['label' => false, 'class' => 'form-control span-input accessory-charged', 'readonly' => 'readonly', 'style'=>'font-weight:bold; text-align:center !important;']); ?>
 
     </td>
 

@@ -95,11 +95,10 @@ foreach ($parts as $part) {
     $fullName = $authUser['firstname'] . ' ' . $authUser['lastname'];
     echo '<p class="no-margin"><span>' . ucfirst($authUser['role']) . ': </span> <span style="font-weight: bold;"> ' . $fullName . ' </span></p>';
 }
-
 ?>
 
 <p class="no-margin">Customer Name: <span><b><?= h($quote->customer_name) ?></b></span></p>
-<p class="no-margin">Quote ID: <span><b><?= h($quote->qId) ?></b></span></p>
+<p class="no-margin">Quote ID: <span><b><?= h($quote->id) ?></b></span></p>
 <p>Status: <span>
         <?php if ($authUser['role'] == 'manufacturer'): ?>
             <?= $this->Form->select(

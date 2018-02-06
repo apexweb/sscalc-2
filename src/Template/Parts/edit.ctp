@@ -120,6 +120,12 @@
             <?= $this->Form->input('description', ['class' => 'form-control input-sm', 'type' => 'textarea']) ?>
         </div>
     </div>
+	
+	 <div class="form-group ">
+        <div class="col-lg-3 col-md-4 col-xs-12">
+            <?= $this->Form->input('display_order', ['class' => 'form-control input-sm']) ?>
+        </div>
+    </div>
 
     <div class="form-group text-center m-t-40">
         <div class=" col-lg-3 col-md-4 col-xs-12">

@@ -44,10 +44,9 @@
     </td>
     
     <td>
-		<?php $otherColour = array_merge($colours, array('Other'=>'Other'));?>
         <?= $this->Form->select(
             'products.' . $i . '.product_colour',
-            $otherColour,
+            $colours,
             ['empty' => ' ', 'label' => false,
                 'class' => 'product-options form-control product-colour', 'data-style' => 'btn-primary']
         );
@@ -71,7 +70,7 @@
         <?= $this->Form->select(
             'products.' . $i . '.product_window_frame_type',
             ['9mm' => '9mm', '11mm' => '11mm'],
-            ['empty' => ' ', 'label' => false, 'class' => 'product-options form-control product-frame-type', 'data-style' => 'btn-primary']
+            ['empty' => ' ', 'label' => false, 'class' => 'form-control product-frame-type', 'data-style' => 'btn-primary']
         );
         ?>
 
@@ -118,7 +117,7 @@
 
         <?= $this->Form->select(
             'products.' . $i . '.product_lock_type',
-            ['Single Sld' => 'Single Sld', 'Single Hng' => 'Single Hng', 'Triple Sld' => 'Triple Sld', 'Triple Hng' => 'Triple Hng'],
+            ['Single' => 'Single', 'Triple' => 'Triple'],
             ['empty' => ' ', 'label' => false,
                 'class' => 'product-options product-lock-type form-control', 'data-style' => 'btn-primary']
         );
@@ -135,6 +134,9 @@
                 class="delete-btn product-delete"><i class="typcn typcn-delete"></i>
         </button>
     </td>
+    <?= $this->Form->input('products.' . $i . '.product_incorporate_install',
+        ['type' => 'hidden','class' => 'product_incorporate_install',])
+    ?>
 </tr>
 
 <tr id="product-prices-row-<?php echo $i; ?>" class="product-prices-row">
@@ -176,7 +178,6 @@
                         'nestingLabel' => '{{hidden}}{{input}}<label{{attrs}}>{{text}}</label>',
                         'inputContainer' => '<div class="input inline-block {{type}}{{required}}">{{content}}</div>',]])
             ?>
-
         </div>
     </td>
 </tr>

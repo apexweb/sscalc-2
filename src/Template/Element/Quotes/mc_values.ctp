@@ -342,8 +342,10 @@
     
     <table class="table table-no-border">
         
-        <?php foreach($mc_parts as $mc_part) { ?>
-            <tr class="mc-<?= $mc_part['data-code']?>-color" style="background:<?= $mc_part['color-code']?>;">
+        <?php
+		//pr($mc_parts);
+		foreach($mc_parts as $mc_part) { ?>
+            <tr class="mc-<?= $mc_part['data-code']?>-color" style="background:<?= @$mc_part['color-code']?>;">
                 <td colspan="2" class="mc-<?= $mc_part['data-code']?>-title"><?= $mc_part['title']?></td>
                 <td class="mc-<?= $mc_part['data-code']?>-price"><?= $mc_part['price']?></td>
                 <td><?= $mc_part['data-code']?></td>
